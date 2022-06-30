@@ -194,7 +194,7 @@ const Claim = () => {
         </h3>
         <p className=" flex text-lg items-center mx-auto max-w-sm">
           Owners of the NFBeez NFT can claim their cube for each NFT they own.
-          Don't have one? You can buy a cube directly
+          Do not have one? You can buy a cube directly
         </p>
       </div>
 
