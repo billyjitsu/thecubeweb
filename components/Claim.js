@@ -211,7 +211,8 @@ const Claim = () => {
               <div className="space-y-3 lg:space-y-7 ">
                 <div>
                   <h3 className="text-xl mb-1">Claim your Cube</h3>
-                  <h3 className="text-sm">1 NFBee = 1 Cube</h3>
+                  <h3 className="text-sm">
+                    <a href="https://www.nfbeez.xyz/" target="_blank" rel="noreferrer" className="hover:opacity-75" >1 NFBee</a> = 1 Cube</h3>
                 </div>
                 <button
                   onClick={claimToken}
