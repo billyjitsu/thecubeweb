@@ -12,8 +12,6 @@ import Footer from '../components/Footer';
  Sponsor wallet:  0x2af539121297E2044440708BAd18A5FE5bd79A32
  */
 
-
-
 export default function Home() {
   return (
     <div>

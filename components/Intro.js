@@ -3,16 +3,15 @@ import heroImage from "../images/desktop/image-hero.jpg";
 
 const Intro = () => {
   return (
-    
     <section className="hero">
       <div className="">
-        <div className="relative flex w-full h-screen content-center items-center justify-center md:h-screen -z-10">
+        <div className="relative flex w-full h-screen content-center items-center justify-center md:h-screen -z-10  {/*add bg here  commented pic out*/} bg-gradient-to-b from-plantGreen via-huePurple to-mainGreen">
           <div>
-            <Image src={heroImage} alt="heroBanner" layout="fill" objectFit="cover" priority />
+            {/*<Image src={heroImage} alt="heroBanner" layout="fill" objectFit="cover" priority /> */}
             {/* objectFit='cover' or 'contain' */}
           </div>
 
-          <div className="container relative mx-auto p-16 md:p-0 ">
+          <div className="container relative mx-auto p-16 md:p-0">
             <div className="flex flex-wrap items-center ">
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="">
@@ -20,7 +19,8 @@ const Intro = () => {
                     The Cube
                   </h1>
                   <p className="mt-4 text-lg font-bold  text-gray-200">
-                    The second iteration of the NFBeez project.  Claim your cube if you hold an NFBee or purchase a cube directly.
+                    The second iteration of the NFBeez project. Claim your cube
+                    if you hold an NFBee or purchase a cube directly.
                   </p>
                 </div>
               </div>
