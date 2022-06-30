@@ -2,10 +2,7 @@ import Image from "next/image";
 import Modal from "./modal";
 import { useEffect, useState } from "react";
 import DAO from "../images/desktop/daocube.jpg";
-import {
-  useContractWrite,
-  useWaitForTransaction,
-} from "wagmi";
+import { useContractWrite, useWaitForTransaction } from "wagmi";
 //contract location
 import contractInterface from "../contracts/contract.json";
 
@@ -25,7 +22,11 @@ const BreakOpen = () => {
     isLoading: mergeLoading,
     isSuccess: mergeStarted,
     error: mergeError,
-  } = useContractWrite(contractConfig, "createDAOCube");
+  } = useContractWrite({
+    addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+    contractInterface: contractInterface.abi,
+    functionName: "createDAOCube",
+  });
 
   // Check TX functions
   const { isSuccess: txMergeSuccess, error: txMergeError } =
@@ -40,7 +41,8 @@ const BreakOpen = () => {
     setMergeAll(true);
   };
 
-  {/* 
+  {
+    /* 
   useEffect(() => {
     console.log("Merge");
     console.log("MergeLoading:", mergeLoading);
@@ -50,10 +52,14 @@ const BreakOpen = () => {
     console.log("MergeAll:", mergeAll);
     console.log("___________");
   }, [modalOnMerge, txMergeSuccess, mergeLoading, mergeStarted]);
-  */}
+  */
+  }
 
   return (
-    <section id="merge" className="bg-gradient-to-b from-huePurple to-mainGreen">
+    <section
+      id="merge"
+      className="bg-gradient-to-b from-huePurple to-mainGreen"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 ">
         {/* Hero content */}
         <div className="pt-16 pb-12 md:pt-20 md:pb-10">

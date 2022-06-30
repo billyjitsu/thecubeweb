@@ -11,11 +11,15 @@ import {
 //contract location
 import contractInterface from "../contracts/contract.json";
 
+//FIX PUTTING IN ADDRESS to pass for MODAL popup
+//pass the address to each function
 
+/* doesn't work for some reason
 const contractConfig = {
   addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
   contractInterface: contractInterface.abi,
 };
+*/
 
 const BreakOpen = () => {
   const [numToBurn, setNumToBurn] = useState(1);
@@ -26,7 +30,7 @@ const BreakOpen = () => {
 
   const handleChange = (e) => {
     setNumToBurn(e.target.value);
-   // console.log("Number:", numToBurn);
+    // console.log("Number:", numToBurn);
   };
 
   //break 1 function
@@ -36,7 +40,11 @@ const BreakOpen = () => {
     isLoading: isBreakOneLoading,
     isSuccess: isBreakOneStarted,
     error: breakOneError,
-  } = useContractWrite(contractConfig, "breakOpen");
+  } = useContractWrite({
+    addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+    contractInterface: contractInterface.abi,
+    functionName: "breakOpen",
+  });
 
   //break all function
   const {
@@ -45,7 +53,11 @@ const BreakOpen = () => {
     isLoading: isBreakAllLoading,
     isSuccess: isBreakAllStarted,
     error: breakAllError,
-  } = useContractWrite(contractConfig, "bulkBreakOpenAll");
+  } = useContractWrite({
+    addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+    contractInterface: contractInterface.abi,
+    functionName: "bulkBreakOpenAll",
+  });
 
   //break open some
   const {
@@ -54,8 +66,11 @@ const BreakOpen = () => {
     isLoading: isBreakSomeLoading,
     isSuccess: isBreakSomeStarted,
     error: breakSomeError,
-  } = useContractWrite(contractConfig, "bulkBreakOpen", {
-    args: [numToBurn], 
+  } = useContractWrite({
+    addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+    contractInterface: contractInterface.abi,
+    functionName: "bulkBreakOpen",
+    args: [numToBurn],
   });
 
   //Check the Tx for all Break functions
@@ -91,7 +106,8 @@ const BreakOpen = () => {
     setBreakingAll(true);
   };
 
-  {/* 
+  {
+    /* 
   //text to console out
   useEffect(() => {
     console.log("Break ONE");
@@ -112,10 +128,14 @@ const BreakOpen = () => {
     console.log("breaking:", breakingSome);
     console.log("___________");
   }, [modalOnBreak, txSomeSuccess, isBreakSomeLoading, isBreakSomeStarted]);
-  */}
+  */
+  }
 
   return (
-    <section id="break" className="bg-gradient-to-b from-plantGreen via-mainGreen to-huePurple">
+    <section
+      id="break"
+      className="bg-gradient-to-b from-plantGreen via-mainGreen to-huePurple"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 ">
         {/* Hero content */}
         <div className="pt-16 pb-12 md:pt-20 md:pb-20">
@@ -193,24 +213,24 @@ const BreakOpen = () => {
                     className="flex bg-gray-900 hover:bg-gray-800 rounded-full px-12 py-2"
                   >
                     {isBreakSomeLoading && <p> Waiting for Approval </p>}
-                  {isBreakSomeStarted && !txSomeSuccess && modalOnBreak && (
-                    <p className="animate-pulse"> Breaking...</p>
-                  )}
-                  {!isBreakSomeLoading && !isBreakSomeStarted && (
-                    <p>Break Cubes</p>
-                  )}
-                  {txSomeSuccess && !modalOnBreak && <p>Break Cubes</p>}
-                  {txSomeSuccess && modalOnBreak && <p>Break Cubes</p>}
+                    {isBreakSomeStarted && !txSomeSuccess && modalOnBreak && (
+                      <p className="animate-pulse"> Breaking...</p>
+                    )}
+                    {!isBreakSomeLoading && !isBreakSomeStarted && (
+                      <p>Break Cubes</p>
+                    )}
+                    {txSomeSuccess && !modalOnBreak && <p>Break Cubes</p>}
+                    {txSomeSuccess && modalOnBreak && <p>Break Cubes</p>}
                   </button>
                   {txSomeSuccess && modalOnBreak && breakingSome && (
-                  <Modal
-                    setModalOnBreak={setModalOnBreak}
-                    setBreaking={setBreaking}
-                    setBreakingSome={setBreakingSome}
-                    setBreakingAll={setBreakingAll}
-                    breakSomeData={breakSomeData}
-                  />
-                )}
+                    <Modal
+                      setModalOnBreak={setModalOnBreak}
+                      setBreaking={setBreaking}
+                      setBreakingSome={setBreakingSome}
+                      setBreakingAll={setBreakingAll}
+                      breakSomeData={breakSomeData}
+                    />
+                  )}
                 </div>
 
                 {/* Break all Cubes */}
@@ -218,7 +238,7 @@ const BreakOpen = () => {
                   onClick={breakAllToken}
                   className="flex bg-gray-900 hover:bg-gray-800 rounded-full px-12 py-2"
                 >
-                   {isBreakAllLoading && <p> Waiting for Approval </p>}
+                  {isBreakAllLoading && <p> Waiting for Approval </p>}
                   {isBreakAllStarted && !txAllSuccess && modalOnBreak && (
                     <p className="animate-pulse"> Breaking...</p>
                   )}
@@ -238,7 +258,6 @@ const BreakOpen = () => {
                     breakAllData={breakAllData}
                   />
                 )}
-
               </div>
             </div>
           </div>
