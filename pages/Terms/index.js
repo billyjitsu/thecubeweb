@@ -6,7 +6,7 @@ const index = () => {
 
 <p className="text-center m-10">Hey! You actually clicked this</p>
 <p className="mb-5 text-sm">
-        In short, we believe in free spirit and essence of web3 but a lot of nefarios actors make life hard for people to have a fun project.  In short, once Minted the NFT it is yours.  Don't be a jerk with the images.
+        In short, we believe in free spirit and essence of web3 but a lot of nefarios actors make life hard for people to have a fun project.  In short, once Minted the NFT it is yours.  Do not be a jerk with the images.
       </p>
       <p className="text-center mb-10">TERMS OF SERVICE – THE NFBEEZ</p>
       <p className="mb-5 text-sm">
