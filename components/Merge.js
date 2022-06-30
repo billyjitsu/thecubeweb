@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Modal from "./modal";
+import Modal from "./Modal";
 import { useEffect, useState } from "react";
 import DAO from "../images/desktop/daocube.jpg";
 import { useContractWrite, useWaitForTransaction } from "wagmi";

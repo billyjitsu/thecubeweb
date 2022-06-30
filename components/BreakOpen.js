@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Modal from "./modal";
+import Modal from "./Modal";
 import cards from "../images/desktop/cards.jpg";
 import { useEffect, useState } from "react";
 import {

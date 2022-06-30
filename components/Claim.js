@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Modal from "./modal";
+import Modal from "./Modal";
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import faceImage from "../images/desktop/cubeface1.jpg";
