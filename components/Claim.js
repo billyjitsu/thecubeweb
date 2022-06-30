@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import faceImage from "../images/desktop/cubeface1.jpg";
 import backImage from "../images/desktop/cubeface2.jpg";
-//From Examples
 import {
   useAccount,
   useConnect,
@@ -15,16 +14,15 @@ import {
 } from "wagmi";
 //contract location
 import contractInterface from "../contracts/contract.json";
-//text
 
 //Payment amount -   Line 132
-//ClaimDATA causing problems passing - 280
-// Put how much under the BUY
 
+/* Not working
 const contractConfig = {
   addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
   contractInterface: contractInterface.abi,
 };
+*/
 
 const alchemyapi = process.env.NEXT_PUBLIC_ALCHEMY_ID;
 
@@ -54,8 +52,8 @@ const Claim = () => {
     error: claimError,
   } = useContractWrite({
     addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
-    contractInterface: contractInterface.abi, 
-    functionName: "claim"
+    contractInterface: contractInterface.abi,
+    functionName: "claim",
   });
 
   //Total claim Cubes
@@ -80,7 +78,7 @@ const Claim = () => {
   } = useContractWrite({
     addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
     contractInterface: contractInterface.abi,
-    functionName: "mint"
+    functionName: "mint",
   });
 
   // Total Cubes Bought
@@ -210,9 +208,11 @@ const Claim = () => {
 
             {/* container to hold text and buttons next/under image */}
             <div className="flex flex-col text-center items-center  space-y-4 text-white">
-              <div className="space-y-2 ">
-                <h3 className="text-xl ">Claim your Cube</h3>
-                <h3 className="text-sm ">1 NFBee = 1 Cube</h3>
+              <div className="space-y-3 lg:space-y-7 ">
+                <div>
+                  <h3 className="text-xl mb-1">Claim your Cube</h3>
+                  <h3 className="text-sm">1 NFBee = 1 Cube</h3>
+                </div>
                 <button
                   onClick={claimToken}
                   className="bg-gray-900 hover:bg-gray-800 rounded-full px-12 py-2 sm:w-auto"
@@ -255,7 +255,10 @@ const Claim = () => {
 
             {/* container to hold text and buttons next/under image */}
             <div className="flex flex-col items-center text-white space-y-2 mb-14 lg:-mb-0">
-              <h3 className="text-xl">Buy a Cube</h3>
+              <div>
+                <h3 className="text-xl">Buy a Cube</h3>
+                <h3 className="text-sm">20 xDai</h3>
+              </div>
               <input
                 type="number"
                 name="tokenID"

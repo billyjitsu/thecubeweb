@@ -1,5 +1,4 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-// get our fontawesome imports
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
@@ -44,7 +43,7 @@ const Header = () => {
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
             <li className="flex items-center">
               <a
-                className="py-2 text-sm uppercase px-6 font-bold leading-snug text-gray-800 lg:text-base lg:text-white hover:opacity-75"
+                className="py-2 text-sm uppercase px-6 font-bold leading-snug text-gray-800 lg:text-base lg:text-white hover:opacity-75 lg:px-3"
                 href="#claim"
                 onClick={() => setNavbarOpen(!navbarOpen)}
               >
@@ -54,7 +53,7 @@ const Header = () => {
             </li>
             <li className="flex items-center">
               <a
-                className="py-2 text-sm uppercase px-6 font-bold leading-snug text-gray-800 lg:text-base lg:text-white hover:opacity-75"
+                className="py-2 text-sm uppercase px-6 font-bold leading-snug text-gray-800 lg:text-base lg:text-white hover:opacity-75 lg:px-3"
                 href="#break"
                 onClick={() => setNavbarOpen(!navbarOpen)}
               >
@@ -64,7 +63,7 @@ const Header = () => {
             </li>
             <li className="flex items-center">
               <a
-                className="py-2 text-sm uppercase px-6 font-bold leading-snug text-gray-800 lg:text-base lg:text-white hover:opacity-75"
+                className="py-2 text-sm uppercase px-6 font-bold leading-snug text-gray-800 lg:text-base lg:text-white hover:opacity-75 lg:px-3"
                 href="#merge"
                 onClick={() => setNavbarOpen(!navbarOpen)}
               >

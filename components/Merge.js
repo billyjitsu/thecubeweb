@@ -6,10 +6,13 @@ import { useAccount, useContractWrite, useWaitForTransaction } from "wagmi";
 //contract location
 import contractInterface from "../contracts/contract.json";
 
+
+/* Not working
 const contractConfig = {
   addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
   contractInterface: contractInterface.abi,
 };
+*/
 
 const BreakOpen = () => {
   const [modalOnMerge, setModalOnMerge] = useState(false);
