@@ -17,12 +17,9 @@ import {
 import contractInterface from "../contracts/contract.json";
 //text
 
-///  Look at line 56 /86 chain ID check
-//Payment amount -   Line 158
-
-// Fix error for read when wrong contract
-// check network ID to check for useeffect
+//Payment amount -   Line 132
 //ClaimDATA causing problems passing - 280
+// Put how much under the BUY
 
 const contractConfig = {
   addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
@@ -109,10 +106,12 @@ const Claim = () => {
 
   // Check TX for both Write functions
   const { isSuccess: txSuccess, error: txError } = useWaitForTransaction({
+    confirmations: 1,
     hash: claimData?.hash,
   });
 
   const { isSuccess: txBuySuccess, error: txBuyError } = useWaitForTransaction({
+    confirmations: 1,
     hash: buyData?.hash,
   });
 

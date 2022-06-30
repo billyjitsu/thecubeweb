@@ -3,8 +3,7 @@ import Modal from "./Modal";
 import cards from "../images/desktop/cards.jpg";
 import { useEffect, useState } from "react";
 import {
-  useConnect,
-  useContractRead,
+  useAccount,
   useContractWrite,
   useWaitForTransaction,
 } from "wagmi";
@@ -27,6 +26,8 @@ const BreakOpen = () => {
   const [breaking, setBreaking] = useState(false);
   const [breakingSome, setBreakingSome] = useState(false);
   const [breakingAll, setBreakingAll] = useState(false);
+  // Address
+  const { address } = useAccount();
 
   const handleChange = (e) => {
     setNumToBurn(e.target.value);
@@ -75,15 +76,18 @@ const BreakOpen = () => {
 
   //Check the Tx for all Break functions
   const { isSuccess: txOneSuccess, error: txOneError } = useWaitForTransaction({
+    confirmations: 1,
     hash: breakOneData?.hash,
   });
 
   const { isSuccess: txSomeSuccess, error: txSomeError } =
     useWaitForTransaction({
+      confirmations: 1,
       hash: breakSomeData?.hash,
     });
 
   const { isSuccess: txAllSuccess, error: txAllError } = useWaitForTransaction({
+    confirmations: 1,
     hash: breakAllData?.hash,
   });
 
@@ -194,6 +198,7 @@ const BreakOpen = () => {
                     setBreakingSome={setBreakingSome}
                     setBreakingAll={setBreakingAll}
                     breakOneData={breakOneData}
+                    address={address}
                   />
                 )}
 
@@ -229,6 +234,7 @@ const BreakOpen = () => {
                       setBreakingSome={setBreakingSome}
                       setBreakingAll={setBreakingAll}
                       breakSomeData={breakSomeData}
+                      address={address}
                     />
                   )}
                 </div>
@@ -256,6 +262,7 @@ const BreakOpen = () => {
                     setBreakingSome={setBreakingSome}
                     setBreakingAll={setBreakingAll}
                     breakAllData={breakAllData}
+                    address={address}
                   />
                 )}
               </div>

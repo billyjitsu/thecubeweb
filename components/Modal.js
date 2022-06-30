@@ -44,7 +44,7 @@ const Modal = ({
       <div className="   bg-black opacity-90 fixed inset-0 z-50   ">
         <div className="flex h-screen justify-center items-center ">
           <div className="flex-col justify-center  bg-black pt-10 pb-8 px-20 border-4 border-plantGreen rounded-xl mx-10 ">
-            <div className="flex  text-lg  text-white text-decoration-line: underline mb-10 ">
+            <div className="flex  justify-center text-lg text-white text-decoration-line: underline mb-10 ">
               Transaction Completed
             </div>
 
@@ -153,8 +153,20 @@ const Modal = ({
               </p>
             )}
             {breakOneData && (
-              <p className="mb-10">
+              <p className="mb-5">
                 View your claim on{" "}
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  href={`https://epor.io/${address}/`}
+                >
+                  Epor.io
+                </a>
+              </p>
+            )}
+            {breakOneData && (
+              <p className="mb-10">
+                See NFT collection on{" "}
                 <a
                   rel="noreferrer"
                   target="_blank"
@@ -193,8 +205,21 @@ const Modal = ({
             )}
 
             {breakSomeData && (
-              <p className="mb-10">
+              <p className="mb-5">
                 View your claim on{" "}
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  href={`https://epor.io/${address}/`}
+                >
+                  Epor.io
+                </a>
+              </p>
+            )}
+
+            {breakSomeData && (
+              <p className="mb-10">
+                See NFT collection on{" "}
                 <a
                   rel="noreferrer"
                   target="_blank"
@@ -232,8 +257,21 @@ const Modal = ({
             )}
 
             {breakAllData && (
-              <p className="mb-10">
+              <p className="mb-5">
                 View your claim on{" "}
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  href={`https://epor.io/${address}/`}
+                >
+                  Epor.io
+                </a>
+              </p>
+            )}
+
+            {breakAllData && (
+              <p className="mb-10">
+                See NFT collection on{" "}
                 <a
                   rel="noreferrer"
                   target="_blank"
@@ -267,6 +305,18 @@ const Modal = ({
                   href={`https://rinkeby.etherscan.io/tx/${mergeData?.hash}`}
                 >
                   Blockscout
+                </a>
+              </p>
+            )}
+            {mergeData && (
+              <p className="mb-5">
+                View your claim on{" "}
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  href={`https://epor.io/${address}/`}
+                >
+                  Epor.io
                 </a>
               </p>
             )}

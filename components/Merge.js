@@ -2,7 +2,7 @@ import Image from "next/image";
 import Modal from "./Modal";
 import { useEffect, useState } from "react";
 import DAO from "../images/desktop/daocube.jpg";
-import { useContractWrite, useWaitForTransaction } from "wagmi";
+import { useAccount, useContractWrite, useWaitForTransaction } from "wagmi";
 //contract location
 import contractInterface from "../contracts/contract.json";
 
@@ -14,6 +14,8 @@ const contractConfig = {
 const BreakOpen = () => {
   const [modalOnMerge, setModalOnMerge] = useState(false);
   const [mergeAll, setMergeAll] = useState(false);
+  //get Address
+  const { address } = useAccount();
 
   //Merge function
   const {
@@ -120,6 +122,7 @@ const BreakOpen = () => {
                       setModalOnMerge={setModalOnMerge}
                       setMergeAll={setMergeAll}
                       mergeData={mergeData}
+                      address={address}
                     />
                   )}
                 </div>
