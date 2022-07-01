@@ -187,11 +187,11 @@ const Claim = () => {
       {/* Text Header */}
       <div className="flex flex-col mb-12 text-center text-white">
         <h3 className="text-5xl font-extrabold mb-2 mx-6 leading-tighter tracking-tighter md:text-6xl">
-          Claim your cube
+          Claim your Cube
         </h3>
         <p className=" flex text-lg items-center mx-auto max-w-sm">
           Owners of the NFBeez NFT can claim their cube for each NFT they own.
-          Do not have one? You can buy a cube directly
+          Do not have one? You can also buy a cube
         </p>
       </div>
 

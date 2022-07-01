@@ -1,14 +1,38 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [animateHeader, setAnimateHeader] = useState(false);
+
+  useEffect(() => {
+    const listener = () => {
+      if (window.scrollY > 180) {
+        setAnimateHeader(true);
+      } else {
+        setAnimateHeader(false);
+      }
+    };
+    window.addEventListener("scroll", listener);
+
+    return () => {
+      window.removeEventListener("scroll", listener);
+    };
+  }, [animateHeader]);
+
+  //OG Nav bar
+  //<nav className="flex bg-transparent  py-3 px-1 justify-between w-full items-center  fixed top-0 z-50 "> {/* absolute or fixed*/}
 
   return (
-    <nav className="flex bg-transparent  py-3 px-1 justify-between w-full items-center  fixed top-0 z-50 "> {/* absolute or fixed*/}
+    <nav
+      className={`flex bg-transparent pt-3 pb-1 px-1 w-full justify-between items-center fixed top-0 z-50 duration-500 ease-in-out lg:py-0 lg-px-0 ${
+        animateHeader &&
+        " backdrop-filter backdrop-blur-lg bg-black/25 trasition shadow-xl"
+      }`}
+    >
       <div className="container px-1 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           {/* Logo - Title */}

@@ -13,12 +13,12 @@ const Intro = () => {
 
           <div className="container relative mx-auto p-16 md:p-0">
             <div className="flex flex-wrap items-center ">
-              <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+              <div className="w-full md:max-w-lg px-4 ml-auto mr-auto text-center">
                 <div className="">
                   <h1 className="text-white font-extrabold text-5xl leading-tighter tracking-tighter md:text-6xl">
                     The Cube
                   </h1>
-                  <p className="mt-4 text-lg font-bold  text-gray-200">
+                  <p className="mt-4 text-md font-bold  text-gray-200 md:text-lg">
                     The second iteration of the NFBeez project. Claim your cube
                     if you hold an NFBee or purchase a cube directly.
                   </p>
