@@ -280,7 +280,7 @@ const Claim = () => {
                 placeholder=" Amount"
                 min="1"
                 max="10"
-                className="w-1/2 mb-2 text-black shadow-sm rounded-lg text-center"
+                className="w-1/2 mb-2 text-black shadow-sm rounded-lg text-center pl-2"
                 onChange={handleChange}
                 value={numToMint}
               />
@@ -329,7 +329,7 @@ const Claim = () => {
             name="tokenID"
             min="1"
             placeholder=" Token ID"
-            className="w-1/4 mb-2 text-black shadow-sm rounded-lg  text-center"
+            className="w-1/4 mb-2 text-black shadow-sm rounded-lg  text-center pl-2"
             onChange={handleChangeCheck}
             value={numToCheck}
           />

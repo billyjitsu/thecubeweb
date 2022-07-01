@@ -6,7 +6,6 @@ import { useAccount, useContractWrite, useWaitForTransaction } from "wagmi";
 //contract location
 import contractInterface from "../contracts/contract.json";
 
-
 /* Not working
 const contractConfig = {
   addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
@@ -107,7 +106,7 @@ const BreakOpen = () => {
                 <p className="text-white mx-auto max-w-xs text-md">
                   1 of each of your NFTs
                 </p>
-                
+
                 <div className="flex flex-col text-white max-w-xs mx-auto items-center justify-center space-y-4  sm:max-w-none sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0">
                   <button
                     onClick={mergeToken}
@@ -130,7 +129,12 @@ const BreakOpen = () => {
                     />
                   )}
                 </div>
-                {mergeError && <p className="text-white font-bold max-w-xs mx-auto items-center justify-center mt-3" > You need at least one of EACH NFT to merge to the DAO Cube </p>}
+                {mergeError && (
+                  <p className="text-white font-bold max-w-xs mx-auto items-center justify-center mt-3">
+                    {" "}
+                    You need at least one of EACH NFT to merge to the DAO Cube{" "}
+                  </p>
+                )}
               </div>
             </div>
           </div>

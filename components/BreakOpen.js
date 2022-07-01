@@ -24,7 +24,6 @@ const BreakOpen = () => {
 
   const handleChange = (e) => {
     setNumToBurn(e.target.value);
-    // console.log("Number:", numToBurn);
   };
 
   //break 1 function
@@ -158,11 +157,16 @@ const BreakOpen = () => {
 
             {/* Description */}
             <div className="max-w-3xl mx-auto">
-              <div className="flex flex-col mb-12 text-center text-white">
-                <p className=" flex text-lg items-center mx-auto max-w-md">
+              <div className="flex flex-col mb-9 text-center text-white">
+                <p className=" flex text-lg items-center mx-auto max-w-md mb-3">
                   Burning your cube will mint you a new NFT that is randomly
-                  selected. One cube will mint one NFT and your cube will be
-                  destroyed
+                  selected. One cube will mint one new NFT and YOUR CUBE WILL BE
+                  DESTROYED
+                </p>
+                <p className=" flex text-sm items-center mx-auto max-w-sm">
+                  Due to the nature of the offchain RNG, it is suggested to
+                  break a single cube first and then break a large batch to get
+                  a better spread of randomization if not active for 24 hours
                 </p>
               </div>
 
@@ -194,7 +198,6 @@ const BreakOpen = () => {
                     address={address}
                   />
                 )}
-                
 
                 {/* Break Many Cubes */}
                 <div className="flex flex-col  items-center sm:pb-8 ">
@@ -203,7 +206,7 @@ const BreakOpen = () => {
                     name="breakCube"
                     placeholder="Amount"
                     min="1"
-                    className="w-4/5 mb-2 text-black shadow-sm rounded-lg text-center"
+                    className="w-4/5 mb-2 text-black shadow-sm rounded-lg text-center pl-2"
                     onChange={handleChange}
                     value={numToBurn}
                   />
@@ -261,21 +264,20 @@ const BreakOpen = () => {
                 )}
               </div>
               {breakOneError && (
-                  <p className="text-white font-bold max-w-xs mx-auto items-center justify-center mt-3">
-                    No Cubes to break
-                  </p>
-                )}
-                {breakSomeError && (
-                  <p className="text-white font-bold max-w-xs mx-auto items-center justify-center mt-3">
-                    Not enough Cubes to break
-                  </p>
-                )}
-                {breakAllError && (
-                  <p className="text-white font-bold max-w-xs mx-auto items-center justify-center mt-3">
-                    No Cubes to break or way to many
-                  </p>
-                )}
-
+                <p className="text-white font-bold max-w-xs mx-auto items-center justify-center mt-3">
+                  No Cubes to break
+                </p>
+              )}
+              {breakSomeError && (
+                <p className="text-white font-bold max-w-xs mx-auto items-center justify-center mt-3">
+                  Not enough Cubes to break
+                </p>
+              )}
+              {breakAllError && (
+                <p className="text-white font-bold max-w-xs mx-auto items-center justify-center mt-3">
+                  No Cubes to break or way to many
+                </p>
+              )}
             </div>
           </div>
         </div>
