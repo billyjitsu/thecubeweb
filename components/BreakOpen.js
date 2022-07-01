@@ -2,16 +2,9 @@ import Image from "next/image";
 import Modal from "./Modal";
 import cards from "../images/desktop/cards.jpg";
 import { useEffect, useState } from "react";
-import {
-  useAccount,
-  useContractWrite,
-  useWaitForTransaction,
-} from "wagmi";
+import { useAccount, useContractWrite, useWaitForTransaction } from "wagmi";
 //contract location
 import contractInterface from "../contracts/contract.json";
-
-//FIX PUTTING IN ADDRESS to pass for MODAL popup
-//pass the address to each function
 
 /* doesn't work for some reason
 const contractConfig = {
@@ -201,6 +194,7 @@ const BreakOpen = () => {
                     address={address}
                   />
                 )}
+                
 
                 {/* Break Many Cubes */}
                 <div className="flex flex-col  items-center sm:pb-8 ">
@@ -266,6 +260,22 @@ const BreakOpen = () => {
                   />
                 )}
               </div>
+              {breakOneError && (
+                  <p className="text-white font-bold max-w-xs mx-auto items-center justify-center mt-3">
+                    No Cubes to break
+                  </p>
+                )}
+                {breakSomeError && (
+                  <p className="text-white font-bold max-w-xs mx-auto items-center justify-center mt-3">
+                    Not enough Cubes to break
+                  </p>
+                )}
+                {breakAllError && (
+                  <p className="text-white font-bold max-w-xs mx-auto items-center justify-center mt-3">
+                    No Cubes to break or way to many
+                  </p>
+                )}
+
             </div>
           </div>
         </div>

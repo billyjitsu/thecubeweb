@@ -212,7 +212,16 @@ const Claim = () => {
                 <div>
                   <h3 className="text-xl mb-1">Claim your Cube</h3>
                   <h3 className="text-sm">
-                    <a href="https://www.nfbeez.xyz/" target="_blank" rel="noreferrer" className="hover:opacity-75" >1 NFBee</a> = 1 Cube</h3>
+                    <a
+                      href="https://www.nfbeez.xyz/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:opacity-75"
+                    >
+                      1 NFBee
+                    </a>{" "}
+                    = 1 Cube
+                  </h3>
                 </div>
                 <button
                   onClick={claimToken}
@@ -238,7 +247,12 @@ const Claim = () => {
                   />
                 )}
               </div>
-
+              {claimError && (
+                <p className="text-white font-bold max-w-xs mx-auto items-center justify-center mt-3">
+                  {" "}
+                  No Claimable NFBeez{" "}
+                </p>
+              )}
               <div>
                 <h3 className="text-lg ">Total claimed</h3>
 
@@ -290,6 +304,13 @@ const Claim = () => {
                   buyData={buyData}
                   address={address}
                 />
+              )}
+
+              {claimError && (
+                <p className="text-white font-bold max-w-xs mx-auto items-center justify-center mt-3">
+                  {" "}
+                  Not enough xDai?{" "}
+                </p>
               )}
               <div>
                 <h3 className="text-lg ">Total bought</h3>
