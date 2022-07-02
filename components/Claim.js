@@ -16,7 +16,6 @@ import {
 import contractInterface from "../contracts/contract.json";
 
 //Payment amount -   Line 132
-// check margin on cell phone - small for Owners of NFBeez NFT under Claim your Cube text
 
 /* Not working
 const contractConfig = {
@@ -183,7 +182,7 @@ const Claim = () => {
   return (
     <section
       id="claim"
-      className="pt-20 pb-12 bg-gradient-to-b from-mainGreen via-huePurple to-plantGreen"
+      className="pt-20 pb-12 px-2 bg-gradient-to-b from-mainGreen via-huePurple to-plantGreen"
     >
       {/* Text Header */}
       <div className="flex flex-col mb-12 text-center text-white">

@@ -30,7 +30,7 @@ const Intro = () => {
                   href="/Flowchart"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-md font-bold text-decoration-line: underline text-gray-200 md:text-lg"
+                  className="text-md font-bold text-decoration-line: underline text-gray-200 hover:opacity-75  md:text-lg"
                 >
                   HOW IT WORKS
                 </a>

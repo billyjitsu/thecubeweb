@@ -2,7 +2,12 @@ import Image from "next/image";
 import Modal from "./Modal";
 import { useEffect, useState } from "react";
 import DAO from "../images/desktop/daocube.jpg";
-import { useAccount, useContractWrite, useWaitForTransaction } from "wagmi";
+import {
+  useAccount,
+  useContractRead,
+  useContractWrite,
+  useWaitForTransaction,
+} from "wagmi";
 //contract location
 import contractInterface from "../contracts/contract.json";
 
@@ -16,8 +21,66 @@ const contractConfig = {
 const BreakOpen = () => {
   const [modalOnMerge, setModalOnMerge] = useState(false);
   const [mergeAll, setMergeAll] = useState(false);
+  const [status, setStatus] = useState([]);
+  const [turnOffStatus, setTurnoffStatus] = useState(false);
   //get Address
   const { address } = useAccount();
+  // There has to be a better way to do this
+  let connectedAddress = [
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+    address,
+  ];
+
+  let tokens = [
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+  ];
 
   //Merge function
   const {
@@ -37,6 +100,37 @@ const BreakOpen = () => {
     useWaitForTransaction({
       hash: mergeData?.hash,
     });
+
+  //Read to See how many tokens
+  const { data: totalNFTOwned } = useContractRead({
+    addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+    contractInterface: contractInterface.abi,
+    functionName: "balanceOfBatch",
+    args: [connectedAddress, tokens],
+  });
+
+  //Check Balance
+  const claimed = async () => {
+    setTurnoffStatus(true);
+
+    console.log("Address:", address);
+    console.log("Total NFT Owned:", totalNFTOwned);
+
+    let balances = [];
+    for (let i = 0; i < 25; i++) {
+      if (totalNFTOwned[i] == 0) {
+        balances.push((i + 2).toString() + ", ");
+        console.log("Balances:", balances);
+      }
+      setStatus(balances);
+    }
+
+    if (balances.length > 0) {
+      console.log("Get to checking");
+    } else {
+      console.log("Good to go!");
+    }
+  };
 
   // Group Click Function
   const mergeToken = async () => {
@@ -129,12 +223,31 @@ const BreakOpen = () => {
                     />
                   )}
                 </div>
+
                 {mergeError && (
                   <p className="text-white font-bold max-w-xs mx-auto items-center justify-center mt-3">
                     {" "}
                     You need at least one of EACH NFT to merge to the DAO Cube{" "}
                   </p>
                 )}
+
+                {/* Check the amount of tokens */}
+                <div className="flex flex-col text-white max-w-xs mx-auto items-center justify-center space-y-4  sm:max-w-none  sm:justify-center sm:space-x-4 sm:space-y-0">
+                  <button
+                    onClick={claimed}
+                    className="flex mt-8 bg-gray-900 hover:bg-gray-800 rounded-full px-12 py-2"
+                  >
+                    {"What's Missing"}
+                  </button>
+                  <div className="flex mt-4 max-w-xs">
+                  {turnOffStatus && (
+                    <p>
+                      {" "}
+                      Token/s missing:  {status}
+                    </p>
+                  )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
