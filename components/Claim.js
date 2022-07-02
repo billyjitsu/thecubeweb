@@ -16,6 +16,7 @@ import {
 import contractInterface from "../contracts/contract.json";
 
 //Payment amount -   Line 132
+// check margin on cell phone - small for Owners of NFBeez NFT under Claim your Cube text
 
 /* Not working
 const contractConfig = {
