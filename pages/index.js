@@ -20,7 +20,7 @@ export default function Home() {
         <meta name="The Cube" content="The 2nd Iteration of the NFBeez" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      
       <Nav/>
       <Intro />
       <Claim />

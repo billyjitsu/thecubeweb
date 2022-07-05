@@ -4,8 +4,11 @@ import { useEffect, useState } from "react";
 import DAO from "../images/desktop/daocube.jpg";
 import {
   useAccount,
+  useConnect,
+  useContract,
   useContractRead,
   useContractWrite,
+  useProvider,
   useWaitForTransaction,
 } from "wagmi";
 //contract location
@@ -23,8 +26,11 @@ const BreakOpen = () => {
   const [mergeAll, setMergeAll] = useState(false);
   const [status, setStatus] = useState([]);
   const [turnOffStatus, setTurnoffStatus] = useState(false);
+  const [turnOffError, setTurnOffError] = useState(false);
   //get Address
   const { address } = useAccount();
+  const { isConnected } = useConnect();
+  const provider = useProvider();
   // There has to be a better way to do this
   let connectedAddress = [
     address,
@@ -101,6 +107,41 @@ const BreakOpen = () => {
       hash: mergeData?.hash,
     });
 
+  //Using useContract only (insteas of useContractRead constant feed)
+  const missingBalance = useContract({
+    addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+    contractInterface: contractInterface.abi,
+    signerOrProvider: provider,
+  });
+
+  // Function to capture
+  //Check Balance
+  const nftOwned = async () => {
+    try {
+      const balance = await missingBalance.balanceOfBatch(
+        connectedAddress,
+        tokens
+      );
+      setTurnOffError(false);
+      setTurnoffStatus(true);
+
+      let balances = [];
+
+      for (let i = 0; i < 25; i++) {
+        if (balance[i] == 0) {
+          balances.push((i + 2).toString() + ", ");
+         // console.log("Balances:", balances);
+        }
+        setStatus(balances);
+      }
+    } catch (error) {
+      setTurnOffError(true);
+      setTurnoffStatus(false);
+      console.log("Error:", error);
+    }
+  };
+
+  /*
   //Read to See how many tokens
   const { data: totalNFTOwned } = useContractRead({
     addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
@@ -108,6 +149,7 @@ const BreakOpen = () => {
     functionName: "balanceOfBatch",
     args: [connectedAddress, tokens],
   });
+  
 
   //Check Balance
   const claimed = async () => {
@@ -118,19 +160,26 @@ const BreakOpen = () => {
 
     let balances = [];
     for (let i = 0; i < 25; i++) {
-      if (totalNFTOwned[i] == 0) {
-        balances.push((i + 2).toString() + ", ");
-        console.log("Balances:", balances);
+      if (isConnected) {
+        if (totalNFTOwned[i] == 0) {
+          balances.push((i + 2).toString() + ", ");
+          console.log("Balances:", balances);
+        }
+        setStatus(balances);
       }
-      setStatus(balances);
     }
 
-    if (balances.length > 0) {
-      console.log("Get to checking");
+    if (isConnected) {
+      if (balances.length > 0) {
+        console.log("Get to checking");
+      } else {
+        console.log("Good to go!");
+      }
     } else {
-      console.log("Good to go!");
+      console.log("connect wallet");
     }
   };
+  */
 
   // Group Click Function
   const mergeToken = async () => {
@@ -234,18 +283,14 @@ const BreakOpen = () => {
                 {/* Check the amount of tokens */}
                 <div className="flex flex-col text-white max-w-xs mx-auto items-center justify-center space-y-4  sm:max-w-none  sm:justify-center sm:space-x-4 sm:space-y-0">
                   <button
-                    onClick={claimed}
+                    onClick={nftOwned}
                     className="flex mt-8 bg-gray-900 hover:bg-gray-800 rounded-full px-12 py-2"
                   >
                     {"What's Missing"}
                   </button>
                   <div className="flex mt-4 max-w-xs">
-                  {turnOffStatus && (
-                    <p>
-                      {" "}
-                      Token/s missing:  {status}
-                    </p>
-                  )}
+                    {turnOffStatus && <p> Token/s missing: {status}</p>}
+                    {turnOffError && <p>Connect Your Wallet</p>}
                   </div>
                 </div>
               </div>
