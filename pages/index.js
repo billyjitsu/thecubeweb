@@ -6,11 +6,10 @@ import BreakOpen from '../components/BreakOpen';
 import Merge from '../components/Merge';
 import Footer from '../components/Footer';
 
-
 /* Contracts currently using: 
- NFT Token contract:  0xA4b5088A64e86968FD0A8a517257E2C0023D7796
- BeezCube Contract: 0xF817e4E9F4dAf4F4D0dEF5635e6FbE1D23CB084a
- Sponsor wallet:  0x7A2dD193886d37799bCaCAdC0Bc9682FB1fac4Ae
+ NFT Token contract:  0x64Db34Bb6EcD573fEFF9644532C0e41DBb90765B
+ BeezCube Contract: 0xA9912c34ab43994eF5af54f79A2E11233dfFB8F1
+ Sponsor wallet:  0x2af539121297E2044440708BAd18A5FE5bd79A32
  */
 
 export default function Home() {
