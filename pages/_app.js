@@ -44,7 +44,7 @@ const { chains, provider } = configureChains(
    publicProvider()]
 );
 const { connectors } = getDefaultWallets({
-  appName: "My RainbowKit App",
+  appName: "The Cube App",
   chains,
 });
 const wagmiClient = createClient({
