@@ -23,9 +23,11 @@ export default function Home() {
       
       <Nav/>
       <Intro />
+      {/* 
       <Claim />
       <BreakOpen />
       <Merge />
+      */}
       <Footer />
     </div>
   )
