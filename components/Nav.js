@@ -98,6 +98,7 @@ const Header = () => {
 
             <li className="py-2 flex items-center mb-3 px-3 lg:mb-0 lg:px-0 lg:ml-2">
               <ConnectButton showBalance={false} />
+              {/*    <ConnectButton label="Sign in" showBalance={false} chainStatus="none" /> */}
             </li>
           </ul>
         </div>
