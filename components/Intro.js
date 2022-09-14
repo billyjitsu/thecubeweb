@@ -34,7 +34,15 @@ const Intro = () => {
                 >
                   HOW IT WORKS
                 </a>
+
+                <div>
+              <h1 className="text-white underline font-extrabold text-5xl leading-tighter tracking-tighter md:text-6xl mt-16">
+                    COMING SOON
+                  </h1>
               </div>
+              </div>
+              
+
             </div>
           </div>
         </div>
