@@ -57,7 +57,7 @@ const Modal = ({
                   target="_blank"
                   href={`https://rinkeby.etherscan.io/tx/${buyData?.hash}`}
                 >
-                  Blockscout
+                  Gnosis Scan
                 </a>
               </p>
             )}
@@ -95,7 +95,7 @@ const Modal = ({
                   target="_blank"
                   href={`https://rinkeby.etherscan.io/tx/${claimData}`}
                 >
-                  Blockscout
+                  Gnosis Scan
                 </a>
               </p>
             )}
@@ -148,7 +148,7 @@ const Modal = ({
                   target="_blank"
                   href={`https://rinkeby.etherscan.io/tx/${breakOneData?.hash}`}
                 >
-                  Blockscout
+                  Gnosis Scan
                 </a>
               </p>
             )}
@@ -199,7 +199,7 @@ const Modal = ({
                   target="_blank"
                   href={`https://rinkeby.etherscan.io/tx/${breakSomeData?.hash}`}
                 >
-                  Blockscout
+                  Gnosis Scan
                 </a>
               </p>
             )}
@@ -251,7 +251,7 @@ const Modal = ({
                   target="_blank"
                   href={`https://rinkeby.etherscan.io/tx/${breakAllData?.hash}`}
                 >
-                  Blockscout
+                  Gnosis Scan
                 </a>
               </p>
             )}
@@ -304,7 +304,7 @@ const Modal = ({
                   target="_blank"
                   href={`https://rinkeby.etherscan.io/tx/${mergeData?.hash}`}
                 >
-                  Blockscout
+                  Gnosis Scan
                 </a>
               </p>
             )}
