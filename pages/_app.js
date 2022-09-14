@@ -31,7 +31,7 @@ const GnosisChain = {
     default: 'https://rpc.ankr.com/gnosis',
   },
   blockExplorers: {
-    default: { name: 'Blockscout', url: 'https://blockscout.com/xdai/mainnet' },
+    default: { name: 'Gnosis Scan', url: 'https://gnosisscan.io/' },
   },
   iconUrls: ["https://images.prismic.io/koinly-marketing/16d1deb7-e71f-48a5-9ee7-83eb0f7038e4_Gnosis+Chain+Logo.png"],
   testnet: false,
