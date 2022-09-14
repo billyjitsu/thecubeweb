@@ -7,7 +7,7 @@ const Intro = () => {
   return (
     <section className="hero">
       <div className="">
-        <div className="relative flex w-full h-screen content-center items-center justify-center md:h-screen z-10 bg-gradient-to-b from-plantGreen via-huePurple to-mainGreen">
+        <div className="relative flex w-full h-screen content-center items-center justify-center md:h-screen z-10 bg-gradient-to-b from-black  to-mainGreen">
           <div>
             {/*<Image src={heroImage} alt="heroBanner" layout="fill" objectFit="cover" priority /> */}
             {/* objectFit='cover' or 'contain' */}
@@ -36,13 +36,11 @@ const Intro = () => {
                 </a>
 
                 <div>
-              <h1 className="text-white underline font-extrabold text-5xl leading-tighter tracking-tighter md:text-6xl mt-16">
+                  <h1 className="text-white underline font-extrabold text-5xl leading-tighter tracking-tighter md:text-6xl mt-16">
                     COMING SOON
                   </h1>
+                </div>
               </div>
-              </div>
-              
-
             </div>
           </div>
         </div>
