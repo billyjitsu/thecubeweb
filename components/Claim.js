@@ -129,7 +129,7 @@ const Claim = () => {
 
   // Group Click Function
   const buyToken = async () => {
-    let payment = String(numToMint * 0.001);   // UPDATE THIS PRICE
+    let payment = String(numToMint * 0.0001);
     console.log("payment:", payment);
     const tx = await buy({
       args: [numToMint],
@@ -279,7 +279,7 @@ const Claim = () => {
                 name="tokenID"
                 placeholder=" Amount"
                 min="1"
-                max="25"
+                max="10"
                 className="w-1/2 mb-2 text-black shadow-sm rounded-lg text-center pl-2"
                 onChange={handleChange}
                 value={numToMint}
