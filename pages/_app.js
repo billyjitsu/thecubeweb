@@ -57,7 +57,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider coolMode chains={chains} theme={lightTheme({
-      accentColor: '#623485',  //color of wallet  try #703844
+      accentColor: '#777777',  //color of wallet  try #703844
       accentColorForeground: 'white',
       borderRadius: 'large',
       fontStack: 'system',

@@ -182,7 +182,7 @@ const Claim = () => {
   return (
     <section
       id="claim"
-      className="pt-20 pb-12 px-2 bg-gradient-to-b from-mainGreen via-huePurple to-plantGreen"
+      className="pt-20 pb-12 px-2 bg-gradient-to-b from-gray-800  to-gray-900"
     >
       {/* Text Header */}
       <div className="flex flex-col mb-12 text-center text-white">
@@ -225,7 +225,7 @@ const Claim = () => {
                 </div>
                 <button
                   onClick={claimToken}
-                  className="bg-gray-900 hover:bg-gray-800 rounded-full px-12 py-2 sm:w-auto"
+                  className="bg-gray-600 hover:bg-gray-700 rounded-full px-12 py-2 sm:w-auto"
                   disabled={isClaimLoading}
                 >
                   {isClaimLoading && <p>Waiting for Approval</p>}
@@ -286,7 +286,7 @@ const Claim = () => {
               />
               <button
                 onClick={buyToken}
-                className="bg-gray-900 hover:bg-gray-800 rounded-full px-12 py-2 sm:w-auto "
+                className="bg-gray-600 hover:bg-gray-700 rounded-full px-12 py-2 sm:w-auto "
               >
                 {isBuyLoading && <p>Waiting for Approval</p>}
                 {isBuyStarted && !txBuySuccess && modalOn && (
@@ -323,7 +323,7 @@ const Claim = () => {
 
         {/* Check token claimed or not */}
         <div className="flex flex-col text-white items-center mx-auto max-w-lg lg:mt-14 lg:mb-10">
-          <h3 className="text-lg ">NFBee claimed?</h3>
+          <h3 className="text-lg ">NFBee used?</h3>
           <input
             type="number"
             name="tokenID"
@@ -335,7 +335,7 @@ const Claim = () => {
           />
           <button
             onClick={() => claimed()}
-            className="bg-gray-900 hover:bg-gray-800 rounded-full px-12 py-2 sm:w-auto "
+            className="bg-gray-600 hover:bg-gray-700  rounded-full px-12 py-2 sm:w-auto "
           >
             Check
           </button>

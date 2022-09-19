@@ -130,7 +130,7 @@ const BreakOpen = () => {
   return (
     <section
       id="break"
-      className="bg-gradient-to-b from-plantGreen via-mainGreen to-huePurple"
+      className="bg-gradient-to-b from-gray-900 via-slate-300 to-gray-900"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 ">
         {/* Hero content */}

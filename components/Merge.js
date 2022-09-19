@@ -205,7 +205,7 @@ const BreakOpen = () => {
   return (
     <section
       id="merge"
-      className="bg-gradient-to-b from-huePurple to-mainGreen"
+      className="bg-gradient-to-b from-gray-900 to-slate-300"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 ">
         {/* Hero content */}
