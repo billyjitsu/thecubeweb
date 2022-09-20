@@ -43,7 +43,7 @@ const Modal = ({
     <section id="Modal">
       <div className="   bg-black opacity-90 fixed inset-0 z-50   ">
         <div className="flex h-screen justify-center items-center ">
-          <div className="flex-col justify-center  bg-black pt-10 pb-8 px-20 border-4 border-plantGreen rounded-xl mx-10 ">
+          <div className="flex-col justify-center  bg-black pt-10 pb-8 px-20 border-4 border-white rounded-xl mx-10 ">
             <div className="flex  justify-center text-lg text-white text-decoration-line: underline mb-10 ">
               Transaction Completed
             </div>
