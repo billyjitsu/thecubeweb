@@ -205,8 +205,10 @@ const BreakOpen = () => {
   return (
     <section
       id="merge"
-      className="bg-gradient-to-b from-gray-900 to-slate-300"
+      className="bg-[url('../images/desktop/createIMG.webp')] bg-no-repeat bg-cover bg-fill bg-center pb-12 pt-20"
     >
+
+      {/*   className="bg-gradient-to-b from-gray-900 to-slate-300"  */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 ">
         {/* Hero content */}
         <div className="pt-16 pb-12 md:pt-20 md:pb-10">
@@ -232,8 +234,8 @@ const BreakOpen = () => {
 
             {/* Description */}
             <div className="max-w-3xl mx-auto">
-              <div className="flex flex-col mb-12 text-center text-white">
-                <p className=" flex text-lg items-center mx-auto max-w-md">
+              <div className="flex flex-col mb-12 text-center text-white font-semibold [text-shadow:_0px_0px_9px_rgb(0_0_0_/_100%)]">
+                <p className=" flex text-lg items-center mx-auto max-w-md ">
                   Merge ALL 25 different DAO NFTs to create the Genesis DAO cube
                 </p>
                 <p className=" flex text-lg items-center mx-auto max-w-md">
@@ -243,10 +245,10 @@ const BreakOpen = () => {
 
               {/* Button */}
               <div>
-                <p className="text-white mx-auto max-w-xs text-md">
+                <p className="text-white mx-auto max-w-xs font-semibold text-md [text-shadow:_0px_0px_9px_rgb(0_0_0_/_100%)]">
                   Merging will burn
                 </p>
-                <p className="text-white mx-auto max-w-xs text-md">
+                <p className="text-white mx-auto max-w-xs font-semibold text-md [text-shadow:_0px_0px_9px_rgb(0_0_0_/_100%)]">
                   1 of each of your NFTs
                 </p>
 

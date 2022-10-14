@@ -15,6 +15,7 @@ import {
 //contract location
 import contractInterface from "../contracts/contract.json";
 
+
 //Payment amount -   Line 132
 
 /* Not working
@@ -182,8 +183,10 @@ const Claim = () => {
   return (
     <section
       id="claim"
-      className="pt-20 pb-12 px-2 bg-gradient-to-b from-gray-800  to-gray-900"
+      className="bg-[url('../images/desktop/claimIMG.webp')] bg-no-repeat bg-cover bg-fill bg-center pb-12 pt-20"
     >
+      {/* className="pt-20 pb-12 px-2 bg-gradient-to-b from-gray-800  to-gray-900" */}
+
       {/* Text Header */}
       <div className="flex flex-col mb-12 text-center text-white">
         <h3 className="text-5xl font-extrabold mb-2 mx-6 leading-tighter tracking-tighter md:text-6xl">

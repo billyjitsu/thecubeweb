@@ -130,8 +130,11 @@ const BreakOpen = () => {
   return (
     <section
       id="break"
-      className="bg-gradient-to-b from-gray-900 via-slate-300 to-gray-900"
+      className="bg-[url('../images/desktop/breakIMG.webp')] bg-no-repeat bg-cover bg-fill bg-center"
     >
+
+      {/* className="bg-gradient-to-b from-gray-900 via-slate-300 to-gray-900" */}
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 ">
         {/* Hero content */}
         <div className="pt-16 pb-12 md:pt-20 md:pb-20">
@@ -163,11 +166,12 @@ const BreakOpen = () => {
                   selected. One cube will mint one new NFT and YOUR CUBE WILL BE
                   DESTROYED
                 </p>
-                <p className=" flex text-sm items-center mx-auto max-w-sm">
+                {/*<p className=" flex text-sm items-center mx-auto max-w-sm">
                   Due to the nature of the offchain RNG, it is suggested to
                   break a single cube first and then break a large batch to get
                   a better spread of randomization if not active for 24 hours
                 </p>
+               */}
               </div>
 
               {/* Buttons */}

@@ -11,6 +11,7 @@ module.exports = {
         mainGreen: "#387064",
         plantGreen: "#578534",
         huePurple: "#643870",
+        cubePurple:"#5f3c73",
       },
       fontFamily: {
         sans: ['Poppins', ...defaultTheme.fontFamily.sans],
