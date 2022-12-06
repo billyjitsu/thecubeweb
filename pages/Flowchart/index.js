@@ -27,7 +27,7 @@ const index = () => {
             <Image alt="Front of Cube" src={mobilecreate} layout="intrinsic" />
           </div>
           <a
-                  href="https://www.youtube.com/watch?v=DYDAuI9w1m0"
+                  href="https://www.youtube.com/watch?v=vRZxBrl5YPw"
                   target="_blank"
                   rel="noreferrer"
                   className="text-md font-bold text-decoration-line: underline text-gray-200 hover:opacity-75  md:text-lg"
