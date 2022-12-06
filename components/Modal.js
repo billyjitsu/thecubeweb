@@ -79,7 +79,7 @@ const Modal = ({
                 <a
                   rel="noreferrer"
                   target="_blank"
-                  href={`https://epor.io/tokens/${buyData?.to}`}
+                  href={`https://epor.io/tokens/${buyData?.to}/1?network=xDai`}
                 >
                   Epor.io
                 </a>
@@ -118,7 +118,7 @@ const Modal = ({
                 <a
                   rel="noreferrer"
                   target="_blank"
-                  href={`https://epor.io/tokens/${claimDataContract}`}
+                  href={`https://epor.io/tokens/${claimDataContract}/1?network=xDai`}
                 >
                   Epor.io
                 </a>
@@ -326,7 +326,7 @@ const Modal = ({
                 <a
                   rel="noreferrer"
                   target="_blank"
-                  href={`https://epor.io/tokens/${mergeData?.to}/27?network=xDai`}
+                  href={`https://epor.io/tokens/${mergeData?.to}/28?network=xDai`}
                 >
                   Epor.io
                 </a>
