@@ -55,7 +55,7 @@ const Modal = ({
                 <a
                   rel="noreferrer"
                   target="_blank"
-                  href={`https://rinkeby.etherscan.io/tx/${buyData?.hash}`}
+                  href={`https://gnosisscan.io/tx/${buyData?.hash}`}
                 >
                   Gnosis Scan
                 </a>
@@ -93,7 +93,7 @@ const Modal = ({
                 <a
                   rel="noreferrer"
                   target="_blank"
-                  href={`https://rinkeby.etherscan.io/tx/${claimData}`}
+                  href={`https://gnosisscan.io/tx/${claimData}`}
                 >
                   Gnosis Scan
                 </a>
@@ -146,7 +146,7 @@ const Modal = ({
                 <a
                   rel="noreferrer"
                   target="_blank"
-                  href={`https://rinkeby.etherscan.io/tx/${breakOneData?.hash}`}
+                  href={`https://gnosisscan.io/tx/${breakOneData?.hash}`}
                 >
                   Gnosis Scan
                 </a>
@@ -197,7 +197,7 @@ const Modal = ({
                 <a
                   rel="noreferrer"
                   target="_blank"
-                  href={`https://rinkeby.etherscan.io/tx/${breakSomeData?.hash}`}
+                  href={`https://gnosisscan.io/tx/${breakSomeData?.hash}`}
                 >
                   Gnosis Scan
                 </a>
@@ -249,7 +249,7 @@ const Modal = ({
                 <a
                   rel="noreferrer"
                   target="_blank"
-                  href={`https://rinkeby.etherscan.io/tx/${breakAllData?.hash}`}
+                  href={`https://gnosisscan.io/tx/${breakAllData?.hash}`}
                 >
                   Gnosis Scan
                 </a>
@@ -302,7 +302,7 @@ const Modal = ({
                 <a
                   rel="noreferrer"
                   target="_blank"
-                  href={`https://rinkeby.etherscan.io/tx/${mergeData?.hash}`}
+                  href={`https://gnosisscan.io/tx/${mergeData?.hash}`}
                 >
                   Gnosis Scan
                 </a>

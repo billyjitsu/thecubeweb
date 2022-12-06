@@ -2,20 +2,9 @@ import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultWallets, RainbowKitProvider, darkTheme, lightTheme, midnightTheme } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, defaultChains, createClient, WagmiConfig } from "wagmi";
-import { alchemyProvider } from "wagmi/providers/alchemy";
-//import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
+//import { alchemyProvider } from "wagmi/providers/alchemy";
+import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { publicProvider } from "wagmi/providers/public";
-
-
-/*
-const { chains, provider } = configureChains(
-  [chain.mainnet, chain.rinkeby],
-  [
-    jsonRpcProvider({ rpc: () => ({ http: 'https://rpc.ankr.com/eth' }) }),
-    publicProvider(),
-  ]
-);
-*/
 
 /* adding gnosis network */
 const GnosisChain = {
@@ -38,13 +27,15 @@ const GnosisChain = {
 }
 
 const { chains, provider } = configureChains(
-  [chain.rinkeby],
-  [alchemyProvider({ alchemyId: process.env.NEXT_PUBLIC_ALCHEMY_ID }),
-   // jsonRpcProvider({ rpc: () => ({ http: 'https://rpc.ankr.com/gnosis' }) }), // Move this top top
-   publicProvider()]
+  [GnosisChain],
+  [
+    //alchemyProvider({ alchemyId: process.env.NEXT_PUBLIC_ALCHEMY_ID }),
+   jsonRpcProvider({ rpc: () => ({ http: 'https://rpc.ankr.com/gnosis' }) }), // Move this top top
+   publicProvider()
+  ]
 );
 const { connectors } = getDefaultWallets({
-  appName: "My RainbowKit App",
+  appName: "The Cube",
   chains,
 });
 const wagmiClient = createClient({

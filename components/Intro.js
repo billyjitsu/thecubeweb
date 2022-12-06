@@ -21,7 +21,7 @@ const Intro = () => {
                   <h1 className="text-white font-extrabold text-5xl leading-tighter tracking-tighter drop-shadow-md mb-6">
                     The Cube
                   </h1>
-                  <p className="mt-4 mb-16 text-md font-bold text-white drop-shadow-md max-w-xs  sm:ml-20">
+                  <p className="mt-4 mb-16 text-md font-bold text-white drop-shadow-md max-w-xs xs:ml-0 sm:ml-20 ">
                     A journey through the Gnosis Chain ecosystem.  Collect all the cards to create the DAO cube
                   </p>
                 </div>

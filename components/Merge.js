@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Modal from "./Modal";
 import { useEffect, useState } from "react";
-import DAO from "../images/desktop/daocube.jpg";
+import DAO from "../images/desktop/daocube.webp";
 import {
   useAccount,
   useConnect,
@@ -58,6 +58,7 @@ const BreakOpen = () => {
     address,
     address,
     address,
+    address,
   ];
 
   let tokens = [
@@ -86,6 +87,7 @@ const BreakOpen = () => {
     "24",
     "25",
     "26",
+    "27",
   ];
 
   //Merge function
@@ -127,7 +129,7 @@ const BreakOpen = () => {
 
       let balances = [];
 
-      for (let i = 0; i < 25; i++) {
+      for (let i = 0; i < 26; i++) {
         if (balance[i] == 0) {
           balances.push((i + 2).toString() + ", ");
          // console.log("Balances:", balances);
@@ -205,7 +207,7 @@ const BreakOpen = () => {
   return (
     <section
       id="merge"
-      className="bg-[url('../images/desktop/createIMG.webp')] bg-no-repeat bg-cover bg-fill bg-center pb-12 pt-20"
+      className="bg-[url('../images/desktop/createIMG.webp')] bg-no-repeat bg-cover bg-fill bg-center pb-12 pt-20 shadow-md"
     >
 
       {/*   className="bg-gradient-to-b from-gray-900 to-slate-300"  */}
@@ -236,10 +238,13 @@ const BreakOpen = () => {
             <div className="max-w-3xl mx-auto">
               <div className="flex flex-col mb-12 text-center text-white font-semibold [text-shadow:_0px_0px_9px_rgb(0_0_0_/_100%)]">
                 <p className=" flex text-lg items-center mx-auto max-w-md ">
-                  Merge ALL 25 different DAO NFTs to create the Genesis DAO cube
+                  Merge ALL 26 different DAO NFTs to create the Genesis DAO cube
                 </p>
                 <p className=" flex text-lg items-center mx-auto max-w-md">
-                  Requires ONE of each DAO NFT
+                  Requires BURNING ONE of each DAO NFT
+                </p>
+                <p className=" flex text-smn items-center mx-auto max-w-md">
+                  Only for the hardcore collectors
                 </p>
               </div>
 
