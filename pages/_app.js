@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultWallets, RainbowKitProvider, darkTheme, lightTheme, midnightTheme } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, defaultChains, createClient, WagmiConfig } from "wagmi";
-//import { alchemyProvider } from "wagmi/providers/alchemy";
+import { alchemyProvider } from "wagmi/providers/alchemy";
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { publicProvider } from "wagmi/providers/public";
 
@@ -29,7 +29,7 @@ const GnosisChain = {
 const { chains, provider } = configureChains(
   [GnosisChain],
   [
-    //alchemyProvider({ alchemyId: process.env.NEXT_PUBLIC_ALCHEMY_ID }),
+   // alchemyProvider({ alchemyId: process.env.NEXT_PUBLIC_ALCHEMY_ID }),
    jsonRpcProvider({ rpc: () => ({ http: 'https://rpc.ankr.com/gnosis' }) }), // Move this top top
    publicProvider()
   ]

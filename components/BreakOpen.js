@@ -2,7 +2,14 @@ import Image from "next/image";
 import Modal from "./Modal";
 import cards from "../images/desktop/cards.jpg";
 import { useEffect, useState } from "react";
-import { useAccount, useContractWrite, useWaitForTransaction } from "wagmi";
+import { ethers } from "ethers";
+import {
+  useAccount,
+  useConnect,
+  useContractRead,
+  useContractWrite,
+  useWaitForTransaction,
+} from "wagmi";
 //contract location
 import contractInterface from "../contracts/contract.json";
 
@@ -19,8 +26,12 @@ const BreakOpen = () => {
   const [breaking, setBreaking] = useState(false);
   const [breakingSome, setBreakingSome] = useState(false);
   const [breakingAll, setBreakingAll] = useState(false);
+  const [cubesOwned, setCubesOwned] = useState(0);
+  const [connectWallet, setConnectWallet] = useState(false);
+  const [showBalance, setShowBalance] = useState(false);
   // Address
   const { address } = useAccount();
+  const { isConnected } = useConnect();
 
   const handleChange = (e) => {
     setNumToBurn(e.target.value);
@@ -50,6 +61,9 @@ const BreakOpen = () => {
     addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
     contractInterface: contractInterface.abi,
     functionName: "bulkBreakOpenAll",
+    overrides: {
+      gasLimit: 800000,
+    }
   });
 
   //break open some
@@ -64,6 +78,9 @@ const BreakOpen = () => {
     contractInterface: contractInterface.abi,
     functionName: "bulkBreakOpen",
     args: [numToBurn],
+    overrides: {
+      gasLimit: 800000,
+    }
   });
 
   //Check the Tx for all Break functions
@@ -81,6 +98,15 @@ const BreakOpen = () => {
   const { isSuccess: txAllSuccess, error: txAllError } = useWaitForTransaction({
     confirmations: 1,
     hash: breakAllData?.hash,
+  });
+
+  //Check Cubes amount
+  const { data: cubesInWallet } = useContractRead({
+    addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+    contractInterface: contractInterface.abi,
+    functionName: "balanceOf",
+    args: [address, 1],
+    // watch: true,
   });
 
   //Button MultiFunction Call
@@ -102,8 +128,25 @@ const BreakOpen = () => {
     setBreakingAll(true);
   };
 
-  {
-    /* 
+  const getMyCubesBalance = async () => {
+    try {
+    setCubesOwned(cubesInWallet.toNumber()) // needs to check when it is called have to refresh page
+    setShowBalance(true);
+    setConnectWallet(false);
+  } catch (error) {
+    setConnectWallet(true);
+    setShowBalance(false);
+    console.log("error:", error)
+  }
+  };
+
+  // useEffect(() => {
+  //   if (cubesInWallet && isConnected) {
+  //     setCubesOwned(cubesInWallet.toNumber());
+  //   }
+  // }, [cubesInWallet]);
+
+  /* 
   //text to console out
   useEffect(() => {
     console.log("Break ONE");
@@ -125,14 +168,12 @@ const BreakOpen = () => {
     console.log("___________");
   }, [modalOnBreak, txSomeSuccess, isBreakSomeLoading, isBreakSomeStarted]);
   */
-  }
 
   return (
     <section
       id="break"
       className="bg-[url('../images/desktop/breakIMG.webp')] bg-no-repeat bg-cover bg-fill bg-center"
     >
-
       {/* className="bg-gradient-to-b from-gray-900 via-slate-300 to-gray-900" */}
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 ">
@@ -243,7 +284,7 @@ const BreakOpen = () => {
                 {/* Break all Cubes */}
                 <button
                   onClick={breakAllToken}
-                  className="flex bg-gray-900 hover:bg-gray-800 rounded-full px-12 py-2"
+                  className="flex bg-gray-900 hover:bg-gray-800 rounded-full px-12 py-2 "
                 >
                   {isBreakAllLoading && <p> Waiting for Approval </p>}
                   {isBreakAllStarted && !txAllSuccess && modalOnBreak && (
@@ -282,6 +323,18 @@ const BreakOpen = () => {
                   No Cubes to break or way to many
                 </p>
               )}
+              <div className="flex flex-col  items-center text-white mt-5 sm:mt-0 sm:mr-4">
+                <button
+                  onClick={getMyCubesBalance}
+                  className="flex bg-gray-900 hover:bg-gray-800 rounded-full px-12 py-2"
+                >
+                  Cube Balance
+                </button>
+                <p className="text-lg text-white">
+                  {showBalance && <p>Cubes Owned: {cubesOwned} </p> } 
+                  {connectWallet && <p>Connect Wallet</p>}
+                </p>
+              </div>
             </div>
           </div>
         </div>

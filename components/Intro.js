@@ -33,7 +33,7 @@ const Intro = () => {
                   rel="noreferrer"
                   className="text-md font-bold text-decoration-line: underline text-white drop-shadow-md hover:opacity-75  md:text-lg"
                 >
-                  HOW IT WORKS
+                  SEE HOW IT WORKS
                 </a>
               </div>
             </div>

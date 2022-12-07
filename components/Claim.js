@@ -130,7 +130,7 @@ const Claim = () => {
 
   // Group Click Function
   const buyToken = async () => {
-    let payment = String(numToMint * 0.0001);
+    let payment = String(numToMint * 0.0001); //FIX!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     console.log("payment:", payment);
     const tx = await buy({
       args: [numToMint],
@@ -160,25 +160,23 @@ const Claim = () => {
     }
   }, [totalBuyData]);
 
-  {
-    /* 
-  //test effect:
-  useEffect(() => {
-    console.log("claimData:", claimData);
-    console.log("claimDataHash:", claimData?.hash);  // hash of tx
-    console.log("claimData - To:", claimData?.to);  // contract address
-    console.log("buyData:",buyData?.hash);
-    console.log("buyData -to:",buyData?.to);
-    console.log("address:", address);
-    console.log("USE NETWORK");
-    console.log("chains:", chains); // array of supported chains
-    console.log("chainId:", chainId);
-    console.log("activeChain:", activeChain);
-    console.log("chainStuff:", chainStuff);
-    console.log("___________");
-  }, [chains, chainId, activeChain]);
-  */
-  }
+  
+  
+  // //test effect:
+  // useEffect(() => {
+  //   console.log("claimData:", claimData);
+  //   console.log("claimDataHash:", claimData?.hash);  // hash of tx
+  //   console.log("claimData - To:", claimData?.to);  // contract address
+  //   console.log("buyData:",buyData?.hash);
+  //   console.log("buyData -to:",buyData?.to);
+  //   console.log("address:", address);
+  //   console.log("USE NETWORK");
+  //   console.log("chains:", chains); // array of supported chains
+  //   console.log("totalBuyData:", totalBuyData.toString());
+  //   console.log("___________");
+  // }, [chains]);
+
+  
 
   return (
     <section
@@ -258,7 +256,7 @@ const Claim = () => {
               )}
               <div>
                 <h3 className="text-lg ">Total claimed</h3>
-
+             
                 <h3 className="text-lg">{totalMinted}/2525</h3>
               </div>
             </div>
