@@ -62,7 +62,7 @@ const BreakOpen = () => {
     contractInterface: contractInterface.abi,
     functionName: "bulkBreakOpenAll",
     overrides: {
-      gasLimit: 800000,
+      gasLimit: 2000000,
     }
   });
 
@@ -79,7 +79,7 @@ const BreakOpen = () => {
     functionName: "bulkBreakOpen",
     args: [numToBurn],
     overrides: {
-      gasLimit: 800000,
+      gasLimit: 2000000,
     }
   });
 
