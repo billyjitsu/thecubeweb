@@ -17,6 +17,10 @@ import contractInterface from "../contracts/contract.json";
 const Gallery = () => {
   const [nft, setNFT] = useState([]);
   const [show, setShow] = useState(false);
+  const [tknBalance, setTknBalance] = useState([]);
+
+  //get Address
+  const { address } = useAccount();
 
   const provider = useProvider();
   //Using useContract only (insteas of useContractRead constant feed)
@@ -32,25 +36,35 @@ const Gallery = () => {
     try {
       //go through the array of tokens
       console.log("clicked");
-      for (let i = 1; i < 5; i++) {
+      let tokensArray = [];
+      let balancesArray = [];
+      for (let i = 1; i < 32; i++) {
+        const userBalance = await nftMeta.balanceOf(address,i);
+        if (userBalance > 0) {
+
         const token = await nftMeta.uri(i);
-       // console.log("token:", token);
+
+        
+
+        console.log("UserBalance of :", i, userBalance.toString());
 
         const tokens = await (await fetch(token)).json();
-        let tokensArray = [];
+        balancesArray.push(userBalance.toString());
         tokensArray.push(tokens);
-        setNFT(tokens);
         setShow(true);
 
-        console.log("Tokens:", tokens);
-       // console.log("Name:", tokens.name);
-       // console.log("Description:", tokens.description);
-       // console.log("Attributes:", tokens.attributes[0]);
-       // console.log("Attributes:", tokens.attributes[0].trait_type);
-       // console.log("Attributes:", tokens.attributes[0].value);
-
-        console.log("tokensArray:", tokensArray);
+      //   console.log("Tokens:", tokens);
+      //  console.log("Name:", tokens.name);
+      //  console.log("Description:", tokens.description);
+      //  console.log("Attributes:", tokens.attributes[0]);
+      //  console.log("Attributes:", tokens.attributes[0].trait_type);
+      //  console.log("Attributes:", tokens.attributes[0].value);
+        }
+        
       }
+      setNFT(tokensArray);
+      setTknBalance(balancesArray);
+     // console.log("tokensArray:", tokensArray);
     } catch (error) {
       console.log("Error:", error);
     }
@@ -71,7 +85,7 @@ const Gallery = () => {
         </button>
       </div>
 
-      {show && <Card nft={nft} />}
+      {show && <Card nft={nft} tknBalance={tknBalance} />}
     </section>
   );
 };
