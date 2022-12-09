@@ -96,14 +96,15 @@ const Header = () => {
               </a>
             </li>
             <li className="flex items-center">
+              <Link href="/gallery">
               <a
                 className="py-2 text-sm uppercase px-6 font-bold leading-snug text-gray-800 lg:text-base lg:text-white hover:opacity-75 lg:px-3"
-                href="/gallery"
                 onClick={() => setNavbarOpen(!navbarOpen)}
               >
                 <i className=" leading-lg  opacity-75"></i>
                 <span>Gallery</span>
               </a>
+              </Link>
             </li>
 
             <li className="py-2 flex items-center mb-3 px-3 lg:mb-0 lg:px-0 lg:ml-2">
