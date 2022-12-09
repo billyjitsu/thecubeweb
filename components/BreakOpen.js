@@ -6,8 +6,10 @@ import { ethers } from "ethers";
 import {
   useAccount,
   useConnect,
+  useContract,
   useContractRead,
   useContractWrite,
+  useSigner,
   useWaitForTransaction,
 } from "wagmi";
 //contract location
@@ -32,6 +34,7 @@ const BreakOpen = () => {
   // Address
   const { address } = useAccount();
   const { isConnected } = useConnect();
+  const { data: signerData } = useSigner();
 
   const handleChange = (e) => {
     setNumToBurn(e.target.value);
@@ -101,12 +104,18 @@ const BreakOpen = () => {
   });
 
   //Check Cubes amount
-  const { data: cubesInWallet } = useContractRead({
+  // const { data: cubesInWallet } = useContractRead({
+  //   addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+  //   contractInterface: contractInterface.abi,
+  //   functionName: "balanceOf",
+  //   args: [address, 1],
+  //   // watch: true,
+  // });
+
+  const checkCubes = useContract({
     addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
     contractInterface: contractInterface.abi,
-    functionName: "balanceOf",
-    args: [address, 1],
-    // watch: true,
+    signerOrProvider: signerData,
   });
 
   //Button MultiFunction Call
@@ -128,9 +137,22 @@ const BreakOpen = () => {
     setBreakingAll(true);
   };
 
+  // const getMyCubesBalance = async () => {
+  //   try {
+  //   setCubesOwned(cubesInWallet.toNumber()) // needs to check when it is called have to refresh page
+  //   setShowBalance(true);
+  //   setConnectWallet(false);
+  // } catch (error) {
+  //   setConnectWallet(true);
+  //   setShowBalance(false);
+  //   console.log("error:", error)
+  // }
+  // };
+
   const getMyCubesBalance = async () => {
     try {
-    setCubesOwned(cubesInWallet.toNumber()) // needs to check when it is called have to refresh page
+    const cubeCount = await checkCubes.balanceOf(address, 1);
+    setCubesOwned(cubeCount.toNumber()) // needs to check when it is called have to refresh page
     setShowBalance(true);
     setConnectWallet(false);
   } catch (error) {
