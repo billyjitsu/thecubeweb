@@ -4,7 +4,7 @@ const Card = ({ nft, tknBalance }) => {
   // console.log("NFT:", nft);
   // console.log("Balance:", tknBalance);
   return (
-    <div className="flex flex-wrap p-10 space-x-5 space-y-3">
+    <div className="flex flex-wrap p-10 sm:space-x-5 space-y-3">
       {nft &&
         nft.map((data, key) => (
           <div

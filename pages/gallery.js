@@ -1,23 +1,22 @@
+import Nav from "../components/Nav";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import DAO from "../images/desktop/daocube.jpg";
 import {
   useAccount,
-  useConnect,
   useContract,
-  useContractRead,
-  useContractWrite,
   useProvider,
-  useWaitForTransaction,
 } from "wagmi";
 import Card from "../components/Card.js";
 //contract location
 import contractInterface from "../contracts/contract.json";
 
+
 const Gallery = () => {
   const [nft, setNFT] = useState([]);
   const [show, setShow] = useState(false);
   const [tknBalance, setTknBalance] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   //get Address
   const { address } = useAccount();
@@ -36,39 +35,36 @@ const Gallery = () => {
     try {
       //go through the array of tokens
       console.log("clicked");
+      setLoading(true);
       let tokensArray = [];
       let balancesArray = [];
       for (let i = 1; i < 32; i++) {
-        const userBalance = await nftMeta.balanceOf(address,i);
+        const userBalance = await nftMeta.balanceOf(address, i);
         if (userBalance > 0) {
+          const token = await nftMeta.uri(i);
 
-        const token = await nftMeta.uri(i);
+          console.log("UserBalance of :", i, userBalance.toString());
 
-        
-
-        console.log("UserBalance of :", i, userBalance.toString());
-
-        const tokens = await (await fetch(token)).json();
-        balancesArray.push(userBalance.toString());
-        tokensArray.push(tokens);
-        setShow(true);
-
-      //   console.log("Tokens:", tokens);
-      //  console.log("Name:", tokens.name);
-      //  console.log("Description:", tokens.description);
-      //  console.log("Attributes:", tokens.attributes[0]);
-      //  console.log("Attributes:", tokens.attributes[0].trait_type);
-      //  console.log("Attributes:", tokens.attributes[0].value);
+          const tokens = await (await fetch(token)).json();
+          balancesArray.push(userBalance.toString());
+          tokensArray.push(tokens);
+          setShow(true);
         }
-        
       }
+      setLoading(false);
       setNFT(tokensArray);
       setTknBalance(balancesArray);
-     // console.log("tokensArray:", tokensArray);
+      // console.log("tokensArray:", tokensArray);
     } catch (error) {
       console.log("Error:", error);
     }
   };
+
+  useEffect(() => {
+    if (address) {
+      nftOwned();
+    }
+  }, [address]);
 
   // Nice little and if
   // <Image src={uri.image ? uri.image : noimage '/images'}
@@ -76,16 +72,23 @@ const Gallery = () => {
   return (
     <section
       id="Gallery"
-      className="pt-20 pb-12 px-2 bg-gradient-to-b from-mainGreen via-huePurple to-plantGreen"
+      className="flex flex-col items-center pt-20 pb-12 min-h-screen bg-gradient-to-b from-mainGreen  to-huePurple"
     >
+      <Nav />
+      
+      {loading && <div className="text-white text-center text-4xl animate-pulse">Loading...<br></br>We {"can't"} afford the graph so just chill</div>}
+
+
+      {/* {address && (
       <div>
-        {/* card should go here */}
         <button onClick={nftOwned} className="text-black">
           click me
         </button>
       </div>
-
+      )} */}
       {show && <Card nft={nft} tknBalance={tknBalance} />}
+
+      
     </section>
   );
 };
