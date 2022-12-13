@@ -41,11 +41,16 @@ const Gallery = () => {
       for (let i = 1; i < 32; i++) {
         const userBalance = await nftMeta.balanceOf(address, i);
         if (userBalance > 0) {
+        //  console.log("i", i);
           const token = await nftMeta.uri(i);
 
           console.log("UserBalance of :", i, userBalance.toString());
 
           const tokens = await (await fetch(token)).json();
+          // const tokens = await fetch(token);
+          // console.log({ tokens});
+          // const json = await tokens.json();
+          // console.log({ json })
           balancesArray.push(userBalance.toString());
           tokensArray.push(tokens);
           setShow(true);

@@ -324,7 +324,7 @@ const Claim = () => {
 
         {/* Check token claimed or not */}
         <div className="flex flex-col text-white items-center mx-auto max-w-lg lg:mt-14 lg:mb-10">
-          <h3 className="text-lg ">NFBee used?</h3>
+          <h3 className="text-md ">NFBee token <br></br> ID claimed?</h3>
           <input
             type="number"
             name="tokenID"

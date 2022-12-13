@@ -75,13 +75,9 @@ const Modal = ({
             )}
             {buyData && (
               <p className="mb-10">
-                See NFT collection on{" "}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href={`https://epor.io/tokens/${buyData?.to}/1?network=xDai`}
-                >
-                  Epor.io
+                See Your NFT{" "}
+                <a rel="noreferrer" target="_blank" href="/gallery">
+                  Collection
                 </a>
               </p>
             )}
@@ -114,13 +110,9 @@ const Modal = ({
 
             {claimData && (
               <p className="mb-10">
-                See NFT collection on{" "}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href={`https://epor.io/tokens/${claimDataContract}/1?network=xDai`}
-                >
-                  Epor.io
+                See Your NFT{" "}
+                <a rel="noreferrer" target="_blank" href="/gallery">
+                  Collection
                 </a>
               </p>
             )}
@@ -166,13 +158,9 @@ const Modal = ({
             )}
             {breakOneData && (
               <p className="mb-10">
-                See NFT collection on{" "}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href={`https://epor.io/tokens/${breakOneData?.to}/1?network=xDai`}
-                >
-                  Epor.io
+                See Your NFT{" "}
+                <a rel="noreferrer" target="_blank" href="/gallery">
+                  Collection
                 </a>
               </p>
             )}
@@ -219,13 +207,9 @@ const Modal = ({
 
             {breakSomeData && (
               <p className="mb-10">
-                See NFT collection on{" "}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href={`https://epor.io/tokens/${breakSomeData?.to}/1?network=xDai`}
-                >
-                  Epor.io
+                See Your NFT{" "}
+                <a rel="noreferrer" target="_blank" href="/gallery">
+                  Collection
                 </a>
               </p>
             )}
@@ -271,13 +255,9 @@ const Modal = ({
 
             {breakAllData && (
               <p className="mb-10">
-                See NFT collection on{" "}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href={`https://epor.io/tokens/${breakAllData?.to}/1?network=xDai`}
-                >
-                  Epor.io
+                See Your NFT{" "}
+                <a rel="noreferrer" target="_blank" href="/gallery">
+                  Collection
                 </a>
               </p>
             )}
@@ -322,13 +302,9 @@ const Modal = ({
             )}
             {mergeData && (
               <p className="mb-10">
-                See NFT on{" "}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href={`https://epor.io/tokens/${mergeData?.to}/28?network=xDai`}
-                >
-                  Epor.io
+                See Your NFT{" "}
+                <a rel="noreferrer" target="_blank" href="/gallery">
+                  Collection
                 </a>
               </p>
             )}
