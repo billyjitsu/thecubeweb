@@ -15,13 +15,6 @@ import {
 //contract location
 import contractInterface from "../contracts/contract.json";
 
-/* doesn't work for some reason
-const contractConfig = {
-  addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
-  contractInterface: contractInterface.abi,
-};
-*/
-
 const BreakOpen = () => {
   const [numToBurn, setNumToBurn] = useState(1);
   const [modalOnBreak, setModalOnBreak] = useState(false);
@@ -51,6 +44,9 @@ const BreakOpen = () => {
     addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
     contractInterface: contractInterface.abi,
     functionName: "breakOpen",
+    overrides: {
+      gasLimit: 1500000,
+    }
   });
 
   //break all function
@@ -103,15 +99,6 @@ const BreakOpen = () => {
     hash: breakAllData?.hash,
   });
 
-  //Check Cubes amount
-  // const { data: cubesInWallet } = useContractRead({
-  //   addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
-  //   contractInterface: contractInterface.abi,
-  //   functionName: "balanceOf",
-  //   args: [address, 1],
-  //   // watch: true,
-  // });
-
   const checkCubes = useContract({
     addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
     contractInterface: contractInterface.abi,
@@ -136,18 +123,6 @@ const BreakOpen = () => {
     setModalOnBreak(true);
     setBreakingAll(true);
   };
-
-  // const getMyCubesBalance = async () => {
-  //   try {
-  //   setCubesOwned(cubesInWallet.toNumber()) // needs to check when it is called have to refresh page
-  //   setShowBalance(true);
-  //   setConnectWallet(false);
-  // } catch (error) {
-  //   setConnectWallet(true);
-  //   setShowBalance(false);
-  //   console.log("error:", error)
-  // }
-  // };
 
   const getMyCubesBalance = async () => {
     try {

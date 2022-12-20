@@ -69,7 +69,7 @@ const Modal = ({
                   rel="noreferrer"
                   href={`https://epor.io/${address}/`}
                 >
-                  Epor.io
+                  Marketplace
                 </a>
               </p>
             )}
@@ -103,7 +103,7 @@ const Modal = ({
                   target="_blank"
                   href={`https://epor.io/${address}/`}
                 >
-                  Epor.io
+                  Marketplace
                 </a>
               </p>
             )}
@@ -152,7 +152,7 @@ const Modal = ({
                   target="_blank"
                   href={`https://epor.io/${address}/`}
                 >
-                  Epor.io
+                  Marketplace
                 </a>
               </p>
             )}
@@ -200,7 +200,7 @@ const Modal = ({
                   target="_blank"
                   href={`https://epor.io/${address}/`}
                 >
-                  Epor.io
+                  Marketplace
                 </a>
               </p>
             )}
@@ -248,7 +248,7 @@ const Modal = ({
                   target="_blank"
                   href={`https://epor.io/${address}/`}
                 >
-                  Epor.io
+                  Marketplace
                 </a>
               </p>
             )}
@@ -296,7 +296,7 @@ const Modal = ({
                   target="_blank"
                   href={`https://epor.io/${address}/`}
                 >
-                  Epor.io
+                  Marketplace
                 </a>
               </p>
             )}

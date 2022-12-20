@@ -30,7 +30,7 @@ const { chains, provider } = configureChains(
   [GnosisChain],
   [
    // alchemyProvider({ alchemyId: process.env.NEXT_PUBLIC_ALCHEMY_ID }),
-   jsonRpcProvider({ rpc: () => ({ http: 'https://rpc.ankr.com/gnosis' }) }), // Move this top top
+   jsonRpcProvider({ rpc: () => ({ http: 'https://rpc.ankr.com/gnosis' }) }),
    publicProvider()
   ]
 );
@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider coolMode chains={chains} theme={lightTheme({
-      accentColor: '#bfdbfe',  //color of wallet  try #703844
+      accentColor: '#bfdbfe', 
       accentColorForeground: 'black',
       borderRadius: 'large',
       fontStack: 'system',
