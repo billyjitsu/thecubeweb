@@ -61,7 +61,7 @@ const Modal = ({
                 </a>
               </p>
             )}
-            {buyData && (
+            {/* {buyData && (
               <p className="mb-5">
                 View Your NFT on{" "}
                 <a
@@ -72,7 +72,7 @@ const Modal = ({
                   Marketplace
                 </a>
               </p>
-            )}
+            )} */}
             {buyData && (
               <p className="mb-10">
                 See Your NFT{" "}
@@ -95,7 +95,7 @@ const Modal = ({
                 </a>
               </p>
             )}
-            {claimData && (
+            {/* {claimData && (
               <p className="mb-10">
                 View your claim on{" "}
                 <a
@@ -106,7 +106,7 @@ const Modal = ({
                   Marketplace
                 </a>
               </p>
-            )}
+            )} */}
 
             {claimData && (
               <p className="mb-10">
@@ -144,7 +144,7 @@ const Modal = ({
                 </a>
               </p>
             )}
-            {breakOneData && (
+            {/* {breakOneData && (
               <p className="mb-5">
                 View your claim on{" "}
                 <a
@@ -155,7 +155,7 @@ const Modal = ({
                   Marketplace
                 </a>
               </p>
-            )}
+            )} */}
             {breakOneData && (
               <p className="mb-10">
                 See Your NFT{" "}
@@ -192,7 +192,7 @@ const Modal = ({
               </p>
             )}
 
-            {breakSomeData && (
+            {/* {breakSomeData && (
               <p className="mb-5">
                 View your claim on{" "}
                 <a
@@ -203,7 +203,7 @@ const Modal = ({
                   Marketplace
                 </a>
               </p>
-            )}
+            )} */}
 
             {breakSomeData && (
               <p className="mb-10">
@@ -240,7 +240,7 @@ const Modal = ({
               </p>
             )}
 
-            {breakAllData && (
+            {/* {breakAllData && (
               <p className="mb-5">
                 View your claim on{" "}
                 <a
@@ -251,7 +251,7 @@ const Modal = ({
                   Marketplace
                 </a>
               </p>
-            )}
+            )} */}
 
             {breakAllData && (
               <p className="mb-10">
@@ -288,7 +288,7 @@ const Modal = ({
                 </a>
               </p>
             )}
-            {mergeData && (
+            {/* {mergeData && (
               <p className="mb-5">
                 View your claim on{" "}
                 <a
@@ -299,7 +299,7 @@ const Modal = ({
                   Marketplace
                 </a>
               </p>
-            )}
+            )} */}
             {mergeData && (
               <p className="mb-10">
                 See Your NFT{" "}

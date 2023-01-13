@@ -81,7 +81,7 @@ const Gallery = () => {
     >
       <Nav />
       
-      {loading && <div className="text-white text-center text-4xl animate-pulse">Loading...<br></br>We {"can't"} afford the graph so just chill</div>}
+      {loading && <div className="text-white text-center text-4xl animate-pulse">Loading...<br></br>We {"don't"} have the graph yet, so just chill</div>}
 
 
       {/* {address && (

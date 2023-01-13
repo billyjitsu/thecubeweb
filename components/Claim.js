@@ -55,6 +55,9 @@ const Claim = () => {
     addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
     contractInterface: contractInterface.abi,
     functionName: "claim",
+    overrides: {
+      gasLimit: 2000000,
+    }
   });
 
   //Total claim Cubes
@@ -130,7 +133,7 @@ const Claim = () => {
 
   // Group Click Function
   const buyToken = async () => {
-    let payment = String(numToMint * 0.0001); //FIX!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    let payment = String(numToMint * 20); 
     console.log("payment:", payment);
     const tx = await buy({
       args: [numToMint],
