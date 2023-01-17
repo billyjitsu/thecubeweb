@@ -227,6 +227,7 @@ const Claim = () => {
                     = 1 Cube
                   </h3>
                 </div>
+                {address && (
                 <button
                   onClick={claimToken}
                   className="bg-gray-600 hover:bg-gray-700 rounded-full px-12 py-2 sm:w-auto"
@@ -240,6 +241,8 @@ const Claim = () => {
                   {txSuccess && !modalOn && <p>Claim</p>}
                   {txSuccess && modalOn && <p>Claim</p>}
                 </button>
+
+                )}
                 {txSuccess && modalOn && claiming && (
                   <Modal
                     setModalOn={setModalOn}
@@ -288,6 +291,7 @@ const Claim = () => {
                 onChange={handleChange}
                 value={numToMint}
               />
+              { address && (
               <button
                 onClick={buyToken}
                 className="bg-gray-600 hover:bg-gray-700 rounded-full px-12 py-2 sm:w-auto "
@@ -300,6 +304,7 @@ const Claim = () => {
                 {txBuySuccess && !modalOn && <p>Buy</p>}
                 {txBuySuccess && modalOn && <p>Buy</p>}
               </button>
+              )}
               {txBuySuccess && modalOn && buying && (
                 <Modal
                   setModalOn={setModalOn}
