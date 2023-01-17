@@ -227,6 +227,7 @@ const Claim = () => {
                     = 1 Cube
                   </h3>
                 </div>
+                { !address && <p className="font-bold text-xl">Connect Wallet</p>}
                 {address && (
                 <button
                   onClick={claimToken}
@@ -291,6 +292,7 @@ const Claim = () => {
                 onChange={handleChange}
                 value={numToMint}
               />
+              { !address && <p className="font-bold text-xl">Connect Wallet</p>}
               { address && (
               <button
                 onClick={buyToken}
